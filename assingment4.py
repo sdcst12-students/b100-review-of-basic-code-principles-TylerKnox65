@@ -3,7 +3,8 @@
 #### Calculation of a debt repayment with recurring payments
 This is the reverse of assignments 2 and 3
 
-Calculate how long it will take to completely pay off a debt if regular payments are made.  Note that each year, the debt will increase by the amount of loan interest, but will decrease with youre recurring payment. 
+Calculate how long it will take to completely pay off a debt if regular payments are made.  
+Note that each year, the debt will increase by the amount of loan interest, but will decrease with youre recurring payment. 
 
 Criteria:
 Your program should ask the user for
@@ -21,4 +22,21 @@ How many months will it take him to pay off the car.  How much interest has he p
 84 months
 He will have paid 21711.60 in interest
 """
+initialDebt = float(input("Enter the inital debt: "))
+annualInterest = float(input("Enter the annual interest rate as a %: "))
+annualInterest /= 100
+annualPayment = float(input("Enter the annual payment: "))
+years = 0
+initialDebtstart = initialDebt
+totalInterest = 0
+while initialDebt > 0:
+    
+    interest = initialDebt * annualInterest
+    totalInterest += interest
+    initialDebt = initialDebt + (initialDebt * annualInterest)
+    initialDebt -= annualPayment
+    years += 1
+#totalDebt = initialDebtstart + (initialDebtstart * annualInterest * years)
+#totalInterest = totalDebt - initialDebtstart
 
+print(f"It will take {years} years and you paid {round(totalInterest, 2)} more in interest")

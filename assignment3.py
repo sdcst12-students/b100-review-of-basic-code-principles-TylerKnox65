@@ -22,3 +22,13 @@ rate: 5%
 10 years
 final balance: 1320.68
 """
+annualInvestment = float(input("Enter the annual Investment: "))
+annualInterest = float(input("Enter the annual interest rate as a %: "))
+annualInterest /= 100
+years = int(input("Enter the number of years: "))
+total = annualInvestment + (annualInvestment * annualInterest)
+while years > 1:
+    years -= 1
+    total += annualInvestment
+    total = total + (total * annualInterest)
+print(f"The total money you would have is ${total}")
