@@ -27,16 +27,17 @@ annualInterest = float(input("Enter the annual interest rate as a %: "))
 annualInterest /= 100
 annualPayment = float(input("Enter the annual payment: "))
 years = 0
-initialDebtstart = initialDebt
 totalInterest = 0
 while initialDebt > 0:
-    
+    #Finds the total interest
     interest = initialDebt * annualInterest
     totalInterest += interest
+
+    #Adds the interest
     initialDebt = initialDebt + (initialDebt * annualInterest)
+    
+    #Subtracts the recurring payment
     initialDebt -= annualPayment
     years += 1
-#totalDebt = initialDebtstart + (initialDebtstart * annualInterest * years)
-#totalInterest = totalDebt - initialDebtstart
 
 print(f"It will take {years} years and you paid {round(totalInterest, 2)} more in interest")
